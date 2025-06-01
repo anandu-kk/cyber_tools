@@ -1,8 +1,13 @@
+import os
 import requests
 import streamlit as st
 import hashlib
 import time
-api_key=open(r"C:\Users\anand\Documents\VS code\python\streamlit\vt_api.txt").read()
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key=os.getenv("VIRUSTOTAL_API_KEY")
 headers = {
     "accept": "application/json",
     "x-apikey": api_key

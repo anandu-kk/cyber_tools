@@ -1,11 +1,15 @@
+import os
 import requests
 import streamlit as st
 import re
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 st.title("Url safety checker")
 url = "https://www.virustotal.com/api/v3/urls"
-api_key=open(r"C:\Users\anand\Documents\VS code\python\streamlit\vt_api.txt").read()
+api_key=os.getenv("VIRUSTOTAL_API_KEY")
 test_url=st.text_input("Enter the link for scanning")
 url_pattern = re.compile(
     r"^(?:http://|https://)?" 
